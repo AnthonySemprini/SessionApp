@@ -28,10 +28,17 @@ class Session
     #[ORM\ManyToMany(targetEntity: Stagiaire::class, mappedBy: 'sessions')]
     private Collection $stagiaires;
 
+    #[ORM\ManyToOne(inversedBy: 'sessions')]
+    private ?Formation $formation = null;
+
+    #[ORM\OneToMany(mappedBy: 'session', targetEntity: Programme::class)]
+    private Collection $programmes;
+
    
     public function __construct()
     {
         $this->stagiaires = new ArrayCollection();
+        $this->programmes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,6 +104,48 @@ class Session
     {
         if ($this->stagiaires->removeElement($stagiaire)) {
             $stagiaire->removeSession($this);
+        }
+
+        return $this;
+    }
+
+    public function getFormation(): ?Formation
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?Formation $formation): static
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Programme>
+     */
+    public function getProgrammes(): Collection
+    {
+        return $this->programmes;
+    }
+
+    public function addProgramme(Programme $programme): static
+    {
+        if (!$this->programmes->contains($programme)) {
+            $this->programmes->add($programme);
+            $programme->setSession($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramme(Programme $programme): static
+    {
+        if ($this->programmes->removeElement($programme)) {
+            // set the owning side to null (unless already changed)
+            if ($programme->getSession() === $this) {
+                $programme->setSession(null);
+            }
         }
 
         return $this;

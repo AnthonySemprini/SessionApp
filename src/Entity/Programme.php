@@ -16,6 +16,12 @@ class Programme
     #[ORM\Column]
     private ?int $nbJour = null;
 
+    #[ORM\ManyToOne(inversedBy: 'programmes')]
+    private ?Session $session = null;
+
+    #[ORM\ManyToOne(inversedBy: 'programmes')]
+    private ?Module $module = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +35,30 @@ class Programme
     public function setNbJour(int $nbJour): static
     {
         $this->nbJour = $nbJour;
+
+        return $this;
+    }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): static
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    public function getModule(): ?Module
+    {
+        return $this->module;
+    }
+
+    public function setModule(?Module $module): static
+    {
+        $this->module = $module;
 
         return $this;
     }
