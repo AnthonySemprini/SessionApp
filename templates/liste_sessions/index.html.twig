@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Sessions{% endblock %}
+
+
+{% block body %}
+<h1>Liste des différentes sessions</h1>
+<table class="table table-striped">
+    <tr>
+        <td>Intitulé Session</td>
+        <td>Date de debut</td>
+        <td>Date de fin</td>
+        <td>Nb de places</td>
+        <td>Nb places réserveées</td>
+        <td>Nb places libres</td>
+        <td>Détail programme</td>
+    </tr>
+    {% for session in sessions %}
+    <tr>
+            
+            <td>{{ session.id}}</td>
+            <td>{{ session.dateDebut |  date('d-m-Y') }}</td>
+            <td>{{ session.dateFin | date('d-m-Y') }}</td>
+            <td>{{ session.nbPlace }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
