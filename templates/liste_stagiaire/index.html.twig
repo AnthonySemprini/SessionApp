@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Stagiaires{% endblock %}
+
+{% block body %}
+<h1>Liste des stagiaires</h1>
+<table class="table table-striped">
+    <tr>
+        <td>Nom</td>
+        <td>Prénom</td>
+        <td>Sexe</td>
+        <td>Date de naissance</td>
+        <td>Ville</td>
+        <td>Numéro de tel</td>
+        <td>Email</td>
+    </tr>
+    {% for stagiaire in stagiaires %}
+    <tr>
+            
+            <td>{{ stagiaire.nom}}</td>
+            <td>{{ stagiaire.prenom }}</td>
+            <td>{{ stagiaire.sexe }}</td>
+            <td>{{ stagiaire.dateNaissance|date('d-m-Y')}} {{stagiaire.age }} </td>
+            <td>{{ stagiaire.ville }}</td>
+            <td>{{ stagiaire.numTel }}</td>
+            <td>{{ stagiaire.email }}</td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
+
+{#   #}

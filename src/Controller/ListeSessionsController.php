@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListeSessionsController extends AbstractController
 {
     #[Route('/liste/sessions', name: 'app_liste_sessions')]
-    public function index(SessionRepository $sessionRepository): Response
+    public function listSessions(SessionRepository $sessionRepository): Response
     {
         return $this->render('liste_sessions/index.html.twig', [
             'sessions' => $sessionRepository->findBy([],

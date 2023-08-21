@@ -32,7 +32,7 @@ class Stagiaire
     private ?string $sexe = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateNaissance = null;
+    protected ?\DateTimeInterface $dateNaissance = null;
 
     #[ORM\Column(length: 100)]
     private ?string $email = null;
@@ -122,6 +122,14 @@ class Stagiaire
         $this->dateNaissance = $dateNaissance;
 
         return $this;
+    }
+    public function getAge()
+    {
+        $now = new \DateTime('now');
+        $age = $this->getDateNaissance();
+        $difference = $now->diff($age);
+
+        return $difference->format(' (%y ans)');
     }
 
     public function getEmail(): ?string
