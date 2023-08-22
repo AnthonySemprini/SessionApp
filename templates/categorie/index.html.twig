@@ -5,13 +5,29 @@
 {% block body %}
 <div class="container">
     <h1>Categories</h1>
+    <table class="table table-bordered">
         {% for categorie in categories %}
-            <div class="row">
-                <div class="col">
-                    <a href="#">{{ categorie.nom}}</a>
-                </div>
-            </div>
+        <th>
+            <td>{{ categorie.nom}}</td>
+        </th>
         {% endfor %}
+        {% for module in modules %}
+        <tr>
+            <td>{{ module.nom }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
+            
+
+
+
+
+
+
 
 {% endblock %}
+           
+                   
+               
+            

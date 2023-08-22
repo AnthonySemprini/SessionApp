@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche stagiaire{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% for stagiaire in stagiaires %}
+    <h1>Fiche stagiaire</h1>
+    <h2>{{ stagiaire.nom }} {{ stagiaire.prenom }}</h2>
+    <p>sexe:{{ stagiaire.sexe }}</p>
+    <p>Date de naissance :{{ stagiaire.dateNaissance|date('d-m-Y')}} {{ satgiaire.age }}</p>
+    <p>Ville :{{ stagiaire.ville }}</p>
+    <p>Email :{{ stagiaire.email }}</p>
+    <p>Telephone :{{ stagiaire.numTel }}</p>
+    <h3>Session prévues</h3>
+    {% endfor %}
+</div>
+
+{% endblock %}

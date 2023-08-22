@@ -1,0 +1,8 @@
+ #[Route('/categorie', name: 'app_categorie')]
+    public function moduleByCateg(ModuleRepository $moduleRepository): Response
+    {
+        return $this->render('categorie/index.html.twig', [
+            'modules' => $moduleRepository->findAll(),
+        ]);
+    }
+    

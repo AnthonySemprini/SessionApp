@@ -14,7 +14,7 @@ class ListeStagiaireController extends AbstractController
     {
         return $this->render('liste_stagiaire/index.html.twig', [
             'stagiaires' => $stagiaireRepository->findBy([],
-        ['nom' => 'ASC']),
+        ['id' => 'ASC']),
         ]);
     }
 }
