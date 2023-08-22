@@ -22,8 +22,11 @@
             <td>{{ session.dateDebut |  date('d-m-Y') }}</td>
             <td>{{ session.dateFin | date('d-m-Y') }}</td>
             <td>{{ session.nbPlace }}</td>
-            <td></td>
-            <td></td>
+            <td>{{ session.stagiaires | length }}</td>
+            {% set A = session.nbPlace %}
+            {% set B = session.stagiaires | length %}
+            {% set C = A - B %}
+            <td>{{ C }}</td>
             <td><a href="{{ path('app_session',{'id': session.id}) }}">Programme</a></td>
             {% endfor %}
            
