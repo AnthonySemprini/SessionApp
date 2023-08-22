@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programme{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Programme</h1>
+    {% for programme in session.programmes %}
+        <p>{{programme.module.nom}} dure {{ programme.nbJour }} </p>
+    {% endfor %}
+</div>
+
+{% endblock %}

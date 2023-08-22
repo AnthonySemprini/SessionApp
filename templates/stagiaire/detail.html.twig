@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container">
     <h1>Fiche stagiaire</h1>
-    <h2>{{ stagiaire.nom }} {{ stagiaire.prenom }}</h2>
+    <h2>{{ stagiaire }}</h2>
     <p>Genre :{{ stagiaire.sexe }}</p>
     <p>Date de naissance :{{ stagiaire.dateNaissance|date('d-m-Y')}} {{ stagiaire.age }}</p>
     <p>Ville :{{ stagiaire.ville }}</p>

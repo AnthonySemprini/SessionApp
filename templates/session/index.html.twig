@@ -24,8 +24,9 @@
             <td>{{ session.nbPlace }}</td>
             <td></td>
             <td></td>
-            <td></td>
+            <td><a href="{{ path('app_session',{'id': session.id}) }}">Programme</a></td>
+            {% endfor %}
+           
         </tr>
-        {% endfor %}
 </table>
 {% endblock %}

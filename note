@@ -10,3 +10,7 @@
             <td>{{ module.nom }}</td>
         </tr>
         {% endfor %}
+
+         {% for programme in programmes %}
+                <td>{{ programme.nbJour }}</td>
+            {% endfor %}
