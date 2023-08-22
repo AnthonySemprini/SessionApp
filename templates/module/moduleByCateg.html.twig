@@ -7,9 +7,9 @@
 
 {% block body %}
 <div class="container">
-<h1>Liste modules </h1>
-{% for module in modules %}
-    <p>{{ module.nom }}</p>
+<h1>Modules </h1>
+{% for module in categorie.modules %}
+    <p>{{ module }}</p>
 {% endfor %}
 </div>
 {% endblock %}

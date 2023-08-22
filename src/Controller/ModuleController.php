@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Module;
 use App\Repository\ModuleRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,11 +20,11 @@ class ModuleController extends AbstractController
         ]);
     }
     #[Route('module/{id}', name: 'app_module')]
-    public function moduleByCateg(ModuleRepository $moduleRepository): Response
+    public function moduleByCateg(Module $module, Categorie $categorie): Response
     {
         return $this->render('module/moduleByCateg.html.twig', [
-            'modules' => $moduleRepository->findBy([],
-            ['nom' => 'ASC']),
+            'modules' => $module,
+            'categorie' => $categorie
         ]);
     }
 }

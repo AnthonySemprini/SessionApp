@@ -9,7 +9,7 @@
         {% for categorie in categories %}
        
         <tr>
-            <td><a href="">{{ categorie.nom}}</a></td>
+            <td><a href="{{ path('app_module',{'id': categorie.id})}}">{{ categorie.nom}}</a></td>
         </tr>
 
        
