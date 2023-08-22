@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Module{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1>Liste modules</h1>
+{% for module in modules %}
+    <p>{{ module.nom }}</p>
+{% endfor %}
+</div>
+{% endblock %}

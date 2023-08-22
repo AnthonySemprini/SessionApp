@@ -18,7 +18,7 @@
     {% for session in sessions %}
     <tr>
             
-            <td>{{ session.id}}</td>
+            <td>{{ session.formation.nom }}</td>
             <td>{{ session.dateDebut |  date('d-m-Y') }}</td>
             <td>{{ session.dateFin | date('d-m-Y') }}</td>
             <td>{{ session.nbPlace }}</td>

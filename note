@@ -5,4 +5,8 @@
             'modules' => $moduleRepository->findAll(),
         ]);
     }
-    
+     {% for module in modules %}
+        <tr>
+            <td>{{ module.nom }}</td>
+        </tr>
+        {% endfor %}
