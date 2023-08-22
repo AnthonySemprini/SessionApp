@@ -17,7 +17,7 @@
     {% for stagiaire in stagiaires %}
     <tr>
             <td>{{ stagiaire.id }}</td>
-            <td><a href="{{ path('app_detail_stagiaire',{'id': stagiaire.id})}}">{{ stagiaire.nom}}</a></td>
+            <td><a href="{{ path('app_stagiaire',{'id': stagiaire.id})}}">{{ stagiaire.nom}}</a></td>
             <td>{{ stagiaire.prenom }}</td>
             <td>{{ stagiaire.sexe }}</td>
             <td>{{ stagiaire.dateNaissance|date('d-m-Y')}} {{stagiaire.age }} </td>

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CategorieController extends AbstractController
 {
-    #[Route('/categorie', name: 'app_categorie')]
+    #[Route('/categorie', name: 'app_liste_categorie')]
     public function index(CategorieRepository $categorieRepository, ModuleRepository $moduleRepository): Response
     {
         return $this->render('categorie/index.html.twig', [
