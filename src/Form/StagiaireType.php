@@ -5,34 +5,38 @@ namespace App\Form;
 use App\Entity\Stagiaire;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class StagiaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom',TexteType::class,[
+            ->add('nom',TextType::class,[
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
-            ->add('prenom',TexteType::class,[
+            ->add('prenom',TextType::class,[
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
-            ->add('Ville',TexteType::class,[
+            ->add('Ville',TextType::class,[
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
-            ->add('numTel',TexteType::class,[
+            ->add('numTel',TextType::class,[
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
-            ->add('sexe',TexteType::class,[
+            ->add('sexe',TextType::class,[
                 'attr' => [
                     'class' => 'form-control'
                 ]
@@ -43,14 +47,8 @@ class StagiaireType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('email',TexteType::class,[
+            ->add('email',TextType::class,[
                 'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('sessions',EntityType::class, [
-                'class' => Session::class,
-                'attr' =>[
                     'class' => 'form-control'
                 ]
             ])

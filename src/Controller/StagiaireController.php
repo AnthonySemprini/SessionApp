@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Session;
 use App\Entity\Stagiaire;
+use App\Form\StagiaireType;
 use App\Repository\SessionRepository;
 use App\Repository\StagiaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,14 +24,6 @@ class StagiaireController extends AbstractController
         ]);
     } 
     
-    #[Route('stagiaire/{id}', name: 'app_stagiaire')]
-    public function ficheStagiaire(Stagiaire $stagiaire, SessionRepository $sessionRepository): Response
-    {
-        return $this->render('stagiaire/detail.html.twig', [
-            'stagiaire' => $stagiaire,
-            'sessions' => $sessionRepository->findAll()
-        ]);
-    }
     #[Route('/stagiaire/new', name: 'app_new_stagiaire')]
     public function new(Stagiaire $stagiaire, Request $request, EntityManagerInterface $entityManager)
     {
@@ -55,5 +47,14 @@ class StagiaireController extends AbstractController
                 return $this->render('stagiaire/new.html.twig',[
                     'formAddStagiaire' => $form
                 ]);
+    }
+    
+    #[Route('stagiaire/{id}', name: 'app_stagiaire')]
+    public function ficheStagiaire(Stagiaire $stagiaire, SessionRepository $sessionRepository): Response
+    {
+        return $this->render('stagiaire/detail.html.twig', [
+            'stagiaire' => $stagiaire,
+            'sessions' => $sessionRepository->findAll()
+        ]);
     }
 }

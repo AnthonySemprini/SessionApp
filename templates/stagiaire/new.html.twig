@@ -4,6 +4,39 @@
 
 {% block body %}
 <div class="container">
-    
+    {{form_start(formAddStagiaire)}}
+    <div class="row">
+        <div class="col">
+            {{ form_row(formAddStagiaire.nom)}}
+        </div>
+        <div class="col">
+            {{ form_row(formAddStagiaire.prenom)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ form_row(formAddStagiaire.Ville)}}
+        </div>
+        <div class="col">
+            {{ form_row(formAddStagiaire.numTel)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ form_row(formAddStagiaire.sexe)}}
+        </div>
+        <div class="col">
+            {{ form_row(formAddStagiaire.dateNaissance)}}
+        </div>
+        <div class="col">
+            {{ form_row(formAddStagiaire.email)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3">
+            {{ form_row(formAddStagiaire.valider)}}
+        </div>
+    </div>
+    {{form_end(formAddStagiaire)}}
 </div>
 {% endblock %}
