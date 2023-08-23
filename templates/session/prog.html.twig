@@ -8,6 +8,11 @@
     {% for programme in session.programmes %}
         <p>{{programme.module.nom}}  {{ programme.nbJour }} jours</p>
     {% endfor %}
+    
+    <h2>Stagiaire inscrit</h2>
+    
+    {% for stagiaire in session.stagiaires %}
+    <p>{{ stagiaire }}</p>
+    {% endfor %}
 </div>
-
 {% endblock %}
