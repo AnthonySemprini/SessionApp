@@ -12,23 +12,32 @@
     <p>Email :{{ stagiaire.email }}</p>
     <p>Telephone :{{ stagiaire.numTel }}</p>
 
-    <h3>Session prévues</h3>
+    
 
-    <table class="table table-bordered table-primary table-striped">
-        <th>
-            <td>Session</td>
-            <td>Date de debut</td>
-            <td>Date de fin</td>
-        </th>
+        <h3>Session prévues</h3>
+        
+        <table class="table table-bordered table-primary table-striped">
+            <th>
+                <td>Session</td>
+                <td>Date de debut</td>
+                <td>Date de fin</td>
+            </th>
+            {# {% if session.formation.nom %} #}
         {% for session in stagiaire.sessions %}
-        <tr>
-            <td></td>
-            <td><strong>{{ session.formation.nom}}</strong></td>
-            <td>{{ session.dateDebut |date('d-m-Y') }}</td>
-            <td>{{ session.dateFin |date('d-m-Y') }}</td>
-        </tr>
+                
+            <tr>
+                <td></td>
+                <td><strong>{{ session.formation.nom}}</strong></td>
+                <td>{{ session.dateDebut |date('d-m-Y') }}</td>
+                <td>{{ session.dateFin |date('d-m-Y') }}</td>
+            </tr>
+            {# {% else %}
+        
+                <p>Aucune session prévue</p>
+        
+            {% endif %} #}
         {% endfor %}
-    </table>
+        </table>
 </div>
 
 {% endblock %}
