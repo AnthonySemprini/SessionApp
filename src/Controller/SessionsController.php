@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Session;
 use App\Entity\Programme;
+use App\Entity\Stagiaire;
 use App\Form\SessionType;
 use App\Repository\ModuleRepository;
 use App\Repository\SessionRepository;
@@ -61,6 +62,19 @@ class SessionsController extends AbstractController
             
         ]);
     }
+    #[Route('/session/{sess_id}/deleteStagiaire/{stag_id}', name: 'delete_stagiaire_session')]
+    public function deleteStagiaire(Request $request,  EntityManagerInterface $entityManager): Response
+    {
+        $sessId = $request->get('sess_id');
+        $session = $entityManager->getRepository(Session::class)->find($sessId);
 
-    
+        $stagId = $request->get('stag_id');
+        $stagiaire = $entityManager->getRepository(Stagiaire::class)->find($stagId);
+
+        $session->removeStagiaire($stagiaire);
+
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('app_session', ['id' => $session->getId()]);
+    }
 }

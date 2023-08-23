@@ -4,15 +4,36 @@
 
 {% block body %}
 <div class="container">
-    <h1>Programme</h1>
-    {% for programme in session.programmes %}
-        <p>{{programme.module.nom}}  {{ programme.nbJour }} jours</p>
-    {% endfor %}
+    <h1>Programme de la session</h1>
+
+    <table class="table table-bordered table-primary table-striped ">
+        <tr>
+            <td><strong>Module</strong></td>
+            <td><strong>Nb jour</strong></td>
+        </tr>
+        {% for programme in session.programmes %}
+        <tr>
+            <td>{{programme.module.nom}}</td>  
+            <td>{{ programme.nbJour }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     
     <h2>Stagiaire inscrit</h2>
     
+    <table class="table table-bordered table-primary table-striped ">
+        <tr>
+            <td><strong>Stagiaire</strong></td>
+            <td><strong>Supprimer</strong></td>
+        </tr>
     {% for stagiaire in session.stagiaires %}
-    <p>{{ stagiaire }}</p>
+    <tr>
+        <td>{{ stagiaire }}</td>
+        <td><a href="{{ path('delete_stagiaire_session',{'sess_id': session.id, 'stag_id': stagiaire.id})}}"><img src="/assets/img/poubelle.png" alt="poubelle"></a></td>
+    </tr>
     {% endfor %}
+</table>
 </div>
+
 {% endblock %}
+
