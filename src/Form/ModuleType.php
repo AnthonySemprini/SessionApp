@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Module;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -20,11 +21,13 @@ class ModuleType extends AbstractType
                 'class' => 'form-control'
             ]
         ])
-            // ->add('categorie', EntityType::class,[
-            //     'attr' => [
-            //         'class' => 'form-control'
-            //     ]
-            // ])
+            ->add('categorie', EntityType::class,[
+                'class' => Categorie::class,
+                
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
             
             ->add('valider', SubmitType::class, [
                 'attr'=>[

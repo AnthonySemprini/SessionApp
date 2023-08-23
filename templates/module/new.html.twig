@@ -9,15 +9,15 @@
     <div class="col mb-3">
         {{ form_row(formAddModule.nom)}}
     </div>
-    {# <div class="col">
-        {{ form_row(formAddModule.session)}}
-    </div> #}
-    {{ form_row(formAddModule.valider)}}
+    <div class="col">
+        {{ form_row(formAddModule.categorie)}}
+    </div>
 </div>
 <div class="row">
     <div class="col mb-3">
-        {{form_end(formAddModule)}}
+        {{ form_row(formAddModule.valider)}}
     </div>
 </div>
+{{form_end(formAddModule)}}
 </div>
 {% endblock %}
