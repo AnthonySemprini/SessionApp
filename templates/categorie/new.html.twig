@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un categorie{% endblock %}
+
+{% block body %}
+<div class="container">
+{{form_start(formAddCategorie)}}
+<div class="row">
+    <div class="col mb-3">
+        {{ form_row(formAddCategorie.nom)}}
+    </div>
+ 
+    {{ form_row(formAddCategorie.valider)}}
+</div>
+<div class="row">
+    <div class="col mb-3">
+        {{form_end(formAddCategorie)}}
+    </div>
+</div>
+</div>
+{% endblock %}
