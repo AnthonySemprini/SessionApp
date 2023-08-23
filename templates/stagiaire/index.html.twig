@@ -4,29 +4,31 @@
 
 {% block body %}
 <div class="container">
-<h1>Liste des stagiaires</h1>
-<table class="table table-striped">
-    <th>
-        <td>Stagiaire</td>
-        <td>Sexe</td>
-        <td>Date de naissance</td>
-        <td>Ville</td>
-        <td>Numéro de tel</td>
-        <td>Email</td>
-    </th>
-    {% for stagiaire in stagiaires %}
-    <tr>
-            <td>{{ stagiaire.id }}</td>
-            <td><a href="{{ path('app_stagiaire',{'id': stagiaire.id})}}">{{ stagiaire }}</a></td>
-            <td>{{ stagiaire.sexe }}</td>
-            <td>{{ stagiaire.dateNaissance|date('d-m-Y')}} {{stagiaire.age }} </td>
-            <td>{{ stagiaire.ville }}</td>
-            <td>{{ stagiaire.numTel }}</td>
-            <td>{{ stagiaire.email }}</td>
-        </tr>
-        {% endfor %}
-</table>
+    <h1>Liste des stagiaires</h1>
+        <table class="table table-striped">
+            <th>
+                <td>Stagiaire</td>
+                <td>Sexe</td>
+                <td>Date de naissance</td>
+                <td>Ville</td>
+                <td>Numéro de tel</td>
+                <td>Email</td>
+            </th>
+            {% for stagiaire in stagiaires %}
+            <tr>
+                    <td>{{ stagiaire.id }}</td>
+                    <td><a href="{{ path('app_stagiaire',{'id': stagiaire.id})}}">{{ stagiaire }}</a></td>
+                    <td>{{ stagiaire.sexe }}</td>
+                    <td>{{ stagiaire.dateNaissance|date('d-m-Y')}} {{stagiaire.age }} </td>
+                    <td>{{ stagiaire.ville }}</td>
+                    <td>{{ stagiaire.numTel }}</td>
+                    <td>{{ stagiaire.email }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+    <a href="{{ path('app_new_stagiaire')}}"  class="btn btn-success mb-3">Ajout stagiaire</a>
 </div>
 {% endblock %}
+
 
 {#   #}
