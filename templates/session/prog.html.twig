@@ -18,7 +18,16 @@
         </tr>
         {% endfor %}
     </table>
-    
+
+    <h1>Non programme dans la session</h1>
+
+    <table class="table table-bordered table-primary table-striped ">
+    <tr>
+        <td><strong>Module</strong></td>
+        <td><strong>Add</strong></td>
+        <td><strong>Nb Jour</strong></td>
+    </tr>
+</table>
     <h2>Stagiaire inscrit</h2>
     
     <table class="table table-bordered table-primary table-striped ">
@@ -31,6 +40,21 @@
         <td>{{ stagiaire }}</td>
         <td><a href="{{ path('delete_stagiaire_session',{'sess_id': session.id, 'stag_id': stagiaire.id})}}"><img src="/assets/img/poubelle.png" alt=""></td>
     </tr>
+    {% endfor %}
+</table>
+
+<h2>Stagiaire non inscrit</h2>
+
+<table class="table table-bordered table-primary table-striped ">
+    <tr>
+        <td><strong>Stagiaire</strong></td>
+        <td><strong>Ajouter</strong></td>
+    </tr>
+{% for nonInscrit in nonInscrits %}
+<tr>
+    <td>{{ nonInscrit }}</td> 
+    <td><a href="{{ path('add_stagiaire_session',{'sess_id': session.id, 'stag_id': nonInscrit.id})}}">Add</td>
+</tr>
     {% endfor %}
 </table>
 </div>

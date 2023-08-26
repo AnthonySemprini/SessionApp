@@ -17,16 +17,15 @@
         <h3>Session prévues</h3>
         
         <table class="table table-bordered table-primary table-striped">
-            <th>
+            <tr>
                 <td>Session</td>
                 <td>Date de debut</td>
                 <td>Date de fin</td>
-            </th>
+            </tr>
             {# {% if session.formation.nom %} #}
         {% for session in stagiaire.sessions %}
                 
             <tr>
-                <td></td>
                 <td><strong>{{ session.formation.nom}}</strong></td>
                 <td>{{ session.dateDebut |date('d-m-Y') }}</td>
                 <td>{{ session.dateFin |date('d-m-Y') }}</td>

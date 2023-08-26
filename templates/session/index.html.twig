@@ -27,7 +27,7 @@
             {% set B = session.stagiaires | length %}
             {% set C = A - B %}
             <td>{{ C }}</td>
-            <td><a href="{{ path('app_session',{'id': session.id}) }}">Programme</a></td>
+            <td><a href="{{ path('app_prog_session',{'id': session.id}) }}">Programme</a></td>
             {% endfor %}
            
         </tr>
