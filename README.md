@@ -1,3 +1,10 @@
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=php,symfony,git,mysql,css,bootstrap,html" />
+  </a>
+</p>
+
+
 # 📖 Gestion de Formations et Stagiaires
 
 Ce projet a pour but de développer une application permettant de gérer des sessions de formation et les inscriptions des stagiaires. Chaque session est limitée en nombre de places et possède des dates de début et de fin précises. L'application offre une vue en temps réel sur le nombre de places restantes et gère un catalogue de modules de formation classés par catégorie.
