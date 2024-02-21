@@ -3,21 +3,26 @@
 {% block title %}Ajouter un module{% endblock %}
 
 {% block body %}
-<div class="container">
-{{form_start(formAddModule)}}
-<div class="row">
-    <div class="col mb-3">
-        {{ form_row(formAddModule.nom)}}
+<div class="container mt-5">
+    <h2 class="mb-4">Ajouter un module</h2>
+    {{ form_start(formAddModule, {'attr': {'class': 'needs-validation', 'novalidate': ''}}) }}
+    
+    <div class="mb-3">
+        {{ form_label(formAddModule.nom, 'Nom du module', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(formAddModule.nom, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(formAddModule.nom) }}
     </div>
-    <div class="col">
-        {{ form_row(formAddModule.categorie)}}
+    
+    <div class="mb-3">
+        {{ form_label(formAddModule.categorie, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(formAddModule.categorie, {'attr': {'class': 'form-select'}}) }}
+        {{ form_errors(formAddModule.categorie) }}
     </div>
-</div>
-<div class="row">
-    <div class="col mb-3">
-        {{ form_row(formAddModule.valider)}}
+
+    <div class="mb-3">
+        {{ form_widget(formAddModule.valider, {'attr': {'class': 'btn btn-primary'}}) }}
     </div>
-</div>
-{{form_end(formAddModule)}}
+
+    {{ form_end(formAddModule) }}
 </div>
 {% endblock %}

@@ -1,9 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Bienvenue sur SessionApp!!!</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Bienvenue sur SessionApp!!!</h1>
+    <div class="text-center">
+        <img src="/assets/img/session.jpeg" alt="illustration de réunion" class="img-fluid rounded">
+    </div>
+    <div class="row mt-5">
+        <h2 class="text-center mb-4">Les sessions du moments!!!</h2>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Informatique</h5>
+                    <p class="card-text">Decouvrer les différents modules</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Bureautique</h5>
+                    <p class="card-text">Decouvrer les différents modules</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dentaire</h5>
+                    <p class="card-text">Decouvrer les différents modules</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

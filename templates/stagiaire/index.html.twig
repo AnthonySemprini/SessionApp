@@ -1,34 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Stagiaires{% endblock %}
+{% block title %}Liste des Stagiaires{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Liste des stagiaires</h1>
-        <table class="table table-striped">
-            <th>
-                <td>Stagiaire</td>
-                <td>Sexe</td>
-                <td>Date de naissance</td>
-                <td>Ville</td>
-                <td>Numéro de tel</td>
-                <td>Email</td>
-            </th>
+<div class="container mt-5">
+    <h1 class="mb-4">Liste des stagiaires</h1>
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Stagiaire</th>
+                <th>Sexe</th>
+                <th>Date de naissance</th>
+                <th>Ville</th>
+                <th>Numéro de tel</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for stagiaire in stagiaires %}
             <tr>
-                    <td>{{ stagiaire.id }}</td>
-                    <td><a href="{{ path('app_stagiaire',{'id': stagiaire.id})}}">{{ stagiaire }}</a></td>
-                    <td>{{ stagiaire.sexe }}</td>
-                    <td>{{ stagiaire.dateNaissance|date('d-m-Y')}} {{stagiaire.age }} </td>
-                    <td>{{ stagiaire.ville }}</td>
-                    <td>{{ stagiaire.numTel }}</td>
-                    <td>{{ stagiaire.email }}</td>
-                </tr>
-                {% endfor %}
-        </table>
-    <a href="{{ path('app_new_stagiaire')}}"  class="btn btn-success mb-3">Ajout stagiaire</a>
+                <td>{{ stagiaire.id }}</td>
+                <td><a href="{{ path('app_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nom }} {{ stagiaire.prenom }}</a></td>
+                <td>{{ stagiaire.sexe }}</td>
+                <td>{{ stagiaire.dateNaissance | date('d-m-Y') }} ({{stagiaire.age }} ans)</td>
+                <td>{{ stagiaire.ville }}</td>
+                <td>{{ stagiaire.numTel }}</td>
+                <td>{{ stagiaire.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="{{ path('app_new_stagiaire') }}" class="btn btn-success mb-3">Ajouter un stagiaire</a>
+    </div>
 </div>
 {% endblock %}
-
-
-{#   #}

@@ -1,29 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter un session{% endblock %}
+{% block title %}Ajouter une session{% endblock %}
 
 {% block body %}
-<div class="container">
-{{form_start(formAddSession)}}
-<div class="row">
-    <div class="col mb-3">
-        {{ form_row(formAddSession.formation)}}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Ajouter une session</h1>
+    {{ form_start(formAddSession, {'attr': {'class': 'needs-validation', 'novalidate': ''}}) }}
+    
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_label(formAddSession.formation, 'Formation', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formAddSession.formation, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formAddSession.formation) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_label(formAddSession.nbPlace, 'Nombre de places', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formAddSession.nbPlace, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formAddSession.nbPlace) }}
+        </div>
     </div>
-    <div class="col mb-3">
-        {{ form_row(formAddSession.nbPlace)}}
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_label(formAddSession.dateDebut, 'Date de début', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formAddSession.dateDebut, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formAddSession.dateDebut) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_label(formAddSession.dateFin, 'Date de fin', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(formAddSession.dateFin, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formAddSession.dateFin) }}
+        </div>
     </div>
-    <div class="col mb-3">
-        {{ form_row(formAddSession.dateDebut)}}
+
+    <div class="text-center">
+        {{ form_widget(formAddSession.valider, {'attr': {'class': 'btn btn-primary'}}) }}
     </div>
-    <div class="col mb-3">
-        {{ form_row(formAddSession.dateFin)}}
-    </div>
-</div>
-<div class="row">
-    <div class="col mb-3">
-        {{ form_row(formAddSession.valider)}}
-    </div>
-</div>
-{{form_end(formAddSession)}}
+
+    {{ form_end(formAddSession) }}
 </div>
 {% endblock %}

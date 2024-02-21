@@ -3,40 +3,49 @@
 {% block title %}Fiche stagiaire{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Fiche stagiaire</h1>
-    <h2>{{ stagiaire }}</h2>
-    <p>Genre :{{ stagiaire.sexe }}</p>
-    <p>Date de naissance :{{ stagiaire.dateNaissance|date('d-m-Y')}} {{ stagiaire.age }}</p>
-    <p>Ville :{{ stagiaire.ville }}</p>
-    <p>Email :{{ stagiaire.email }}</p>
-    <p>Telephone :{{ stagiaire.numTel }}</p>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Fiche stagiaire</h1>
+        </div>
+        <div class="card-body">
+            <h2 class="card-subtitle mb-2">{{ stagiaire.nom }} {{ stagiaire.prenom }}</h2>
+            <p class="card-text">Genre : {{ stagiaire.sexe }}</p>
+            <p class="card-text">Date de naissance : {{ stagiaire.dateNaissance|date('d-m-Y') }} ({{ stagiaire.age }} ans)</p>
+            <p class="card-text">Ville : {{ stagiaire.ville }}</p>
+            <p class="card-text">Email : {{ stagiaire.email }}</p>
+            <p class="card-text">Téléphone : {{ stagiaire.numTel }}</p>
+        </div>
+    </div>
 
-    
-
-        <h3>Session prévues</h3>
-        
-        <table class="table table-bordered table-primary table-striped">
-            <tr>
-                <td>Session</td>
-                <td>Date de debut</td>
-                <td>Date de fin</td>
-            </tr>
-            {# {% if session.formation.nom %} #}
-        {% for session in stagiaire.sessions %}
-                
-            <tr>
-                <td><strong>{{ session.formation.nom}}</strong></td>
-                <td>{{ session.dateDebut |date('d-m-Y') }}</td>
-                <td>{{ session.dateFin |date('d-m-Y') }}</td>
-            </tr>
-            {# {% else %}
-        
-                <p>Aucune session prévue</p>
-        
-            {% endif %} #}
-        {% endfor %}
-        </table>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>Sessions prévues</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-primary table-striped">
+                <thead>
+                    <tr>
+                        <th>Session</th>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for session in stagiaire.sessions %}
+                    <tr>
+                        <td><strong>{{ session.formation.nom }}</strong></td>
+                        <td>{{ session.dateDebut | date('d-m-Y') }}</td>
+                        <td>{{ session.dateFin | date('d-m-Y') }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Aucune session prévue</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
 {% endblock %}

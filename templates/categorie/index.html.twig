@@ -1,33 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categories{% endblock %}
+{% block title %}Catégories{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Categories</h1>
-    <table class="table table-bordered table-striped">
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Catégories</h1>
+    <div class="row">
         {% for categorie in categories %}
-       
-        <tr>
-            <td><a href="{{ path('app_module',{'id': categorie.id})}}">{{ categorie.nom}}</a></td>
-        </tr>
-
-       
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ categorie.nom }}</h5>
+                    <p class="card-text">Description ou détails supplémentaires sur la catégorie.</p>
+                    <a href="{{ path('app_module', {'id': categorie.id}) }}" class="btn btn-primary">Voir plus</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-       
-    </table>
-    <a href="{{path('app_new_categorie')}}" class="btn btn-success mb-3">Ajouter categorie</a>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ path('app_new_categorie') }}" class="btn btn-success">Ajouter catégorie</a>
+    </div>
 </div>
-            
-
-
-
-
-
-
-
 {% endblock %}
-           
-                   
-               
-            
