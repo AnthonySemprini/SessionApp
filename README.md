@@ -49,3 +49,7 @@ Pour toute question ou support, veuillez contacter [semprini.anthony@gmail.com].
 
 
 Ce README est conçu pour offrir une vue d'ensemble claire et complète du projet, tout en guidant les utilisateurs et contributeurs potentiels à travers ses différentes composantes.
+
+<img src="Capture d’écran 2024-02-21 à 16.31.56.png">
+<img src="Capture d’écran 2024-02-21 à 16.32.10.png">
+<img src="Capture d’écran 2024-02-21 à 16.32.26.png">
